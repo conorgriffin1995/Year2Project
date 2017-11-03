@@ -1,0 +1,47 @@
+@(registerForm: Form[models.users.Customer], customer: models.users.Customer)
+
+@import helper._
+
+@main("Register Required", customer) {
+
+        <div class="banner">
+            <a href="@routes.ProductCtrl.listProducts(0)">
+                <img src="@routes.Assets.versioned("Images/Banner.png")" alt="Banner" class="img-responsive hidden-xs hidden-sm" />
+            </a>
+        </div>
+
+        <div class="col-xs-4">
+		<h3>Register</h3>
+        <!-- Display login erors if they exist -->
+        @if(registerForm.hasGlobalErrors){
+		      <p class="alert alert-info">
+			      @registerForm.globalError.message
+		      </p>
+	   }
+       
+	<!--The Register form-->
+	@form(action = controllers.security.routes.RegisterCtrl.registerFormSubmit()){	
+        <div class="form-group">
+			<input type="text" name="name" class="form-control input-xs" placeholder="Name" value="@registerForm("name").value">
+		</div>
+        
+		<div class="form-group">
+			<input type="email" name="email" class="form-control input-xs" placeholder="Email" value="@registerForm("email").value">
+		</div>
+        
+		<div class="form-group">
+			<input type="password" name="password" class="form-control input-xs" placeholder="Password" value="@registerForm("password").value">
+		</div>     
+ 
+		<!--Add a submit button-->
+		<div class="form-group">
+			<input type="submit" value="Create Account" class="btn btn-primary">
+            <a href="@controllers.security.routes.RegisterCtrl.registerForm()"></a>
+			 <a href="@routes.ProductCtrl.listProducts(0)" class="btn btn-warning">Cancel</a>             
+		</div>
+	}
+    
+    </div>
+       
+       
+}

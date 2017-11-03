@@ -1,0 +1,61 @@
+@(customer: models.users.Customer, order: models.shopping.ShopOrder)
+
+@import play.api.Play.resource
+@import play.api.Play.current
+@import models.shopping._
+@import models.products._
+
+<!-- Pass page title and user on to main -->
+@main("Order Confirmation", customer) {
+
+
+<div class="row">
+
+	<div class="col-md-12">
+		@if(flash.containsKey("success")) {
+			  <div class="alert alert-success">
+			      @flash.get("success")
+			  </div>
+		} 
+
+		<table class="table table-bordered table-hover table-condensed">
+			<thead>
+			<!-- The header row-->
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Item Price</th>
+				<th>Quantity</th>
+                <th>Total</th>
+			</tr>
+			</thead>
+			<tbody>
+                @if(order != null) {
+                    <!-- Start of For loop - For each p in products add a row -->
+                    @for(i <- order.items) {
+                    <tr>
+                        <td>@i.product.name</td>
+                        <td>@i.product.description</td>
+                        <td>&euro; @("%.2f".format(i.price))</td>
+                        <td>@i.stock</td>
+                        <td>&euro; @("%.2f".format(i.getItemTotal()))</td>		
+                    </tr>
+                    }<!-- End of For loop -->
+              }
+			</tbody>
+		</table>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-right"><strong>Order Total: &euro; @("%.2f".format(order.getOrderTotal()))</strong></p>
+            </div>  
+            <div class="col-md-12">
+                <p class="text-right">
+                    <a href="@routes.Application.index()" class="btn btn-primary btn-sm">Finish</a>
+                </p>
+            </div>
+        </div>
+        </div>
+	</div>
+</div>
+
+}

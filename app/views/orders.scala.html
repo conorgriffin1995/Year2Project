@@ -1,0 +1,49 @@
+@(customer: models.users.Customer)
+
+@main("Previous Orders", customer) {
+
+    <h3>
+		Previous Orders:
+	</h3>
+    
+    
+        <table class="table table-bordered table-hover table-condensed">
+			<thead>
+			<!-- The header row-->
+			<tr>
+				<th>Order Date</th>
+                <th>Product (Quantity)</th>
+                <th>Total Price</th>
+                <th>Delete</th>
+			</tr>
+			</thead>
+			<tbody>
+				
+                @for(i <- customer.orders) {
+                <tr>
+	               <td>@i.OrderDate</td>
+                   
+                   <td>
+                        @for(j <- i.items) {
+			                @j.product.name <b>(@j.stock),</b>    
+                        }
+                   </td>
+                   
+                   <td>&euro; @("%.2f".format(i.getOrderTotal()))</td>
+                   
+					<td>
+						<a href="@routes.OrderCtrl.deleteOrder(i.id)" class="btn-xs btn-danger" 
+						onclick="return confirmDel();">
+						<span class="glyphicon glyphicon-trash"></span></a>
+					</td>
+                    
+                
+                </tr>   
+                                         
+                }
+                
+			</tbody>
+		</table>
+
+}
+

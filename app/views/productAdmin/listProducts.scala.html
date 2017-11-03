@@ -1,0 +1,91 @@
+@(categories: List[models.products.Category], products: List[models.products.Product], user: models.users.User)
+
+@import play.api.Play.resource
+@import play.api.Play.current
+
+
+<!-- Pass page title and user on to main -->
+@productAdmin.main("Products Page", user) {
+
+
+<div class="row">
+
+  <div class="col-md-3">
+      <div class="list-group">
+				<!-- Start of For loop - For each c in categories add a link -->
+				<a href="@routes.AdminProductCtrl.listProducts(0)" class="list-group-item">All categories</a>
+				@for(c <- categories) {
+          <a href="@routes.AdminProductCtrl.listProducts(c.id)" class="list-group-item">@c.name</a>
+				}
+      </div>
+  </div>
+
+	<div class="col-md-9">
+		@if(flash.containsKey("success")) {
+			  <div class="alert alert-success">
+			      @flash.get("success")
+			  </div>
+		} 
+
+		<table class="table table-bordered table-hover table-condensed">
+			<thead>
+			<!-- The header row-->
+			<tr>
+                <th></th>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Stock</th>
+				<th>Price</th>
+			</tr>
+			</thead>
+			<tbody>
+				<!-- Start of For loop - For each p in products add a row -->
+				@for(p <- products) {
+				<tr>
+					<!-- Display each product field value in a column -->
+					@if(resource("public/images/productImages/thumbnails/" + p.id + ".jpg").isDefined) {
+						<td><img src="/assets/images/productImages/thumbnails/@(p.id).jpg"</td>
+					} else {
+						<td><img src="/assets/images/productImages/thumbnails/noImage.png"</td>
+					}
+					<td>@p.id</td>
+					<td>@p.name</td>
+					<td>@p.description</td>
+					<td>@p.stock</td>
+					<td>&euro; @("%.2f".format(p.price))</td>
+					<!-- Edit product button -->
+					@if(user != null) {
+					<td>
+						<a href="@routes.AdminProductCtrl.updateProduct(p.id)" class="btn-xs btn-danger">
+						<span class="glyphicon glyphicon-pencil"></span></a>
+					</td>
+					<!-- Delete product button -->
+					<td>
+						<a href="@routes.AdminProductCtrl.deleteProduct(p.id)" class="btn-xs btn-danger" 
+						onclick="return confirmDel();">
+						<span class="glyphicon glyphicon-trash"></span></a>
+					</td>
+					}
+				</tr>
+				}<!-- End of For loop -->
+			</tbody>
+		</table>
+		@if(user != null) {
+		<div>
+			<a href="@routes.AdminProductCtrl.addProduct()">
+				<button class="btn btn-primary">Add a Product</button>
+			</a>
+		</div>
+		}
+	</div>
+</div>
+
+<script>
+	// JavaScript function returns true if user clicks yes, otherwise, false
+	function confirmDel() {
+		return confirm('Are you sure?');
+	}
+</script>
+}
+

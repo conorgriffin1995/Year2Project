@@ -1,0 +1,55 @@
+@(id: Long, updateProductForm: Form[models.products.Product], user: models.users.User)
+<!-- Product id and editProductForm parameters defined above
+ passed to this view by the controller -->
+ @import models.products._
+
+<!-- a 'helper' will be used to create the form dynamically, 
+though a static HTML form would also work -->
+@import helper._
+
+<!-- The page will be based on the main template -->
+@productAdmin.main("Update Product", user) {
+
+	<h3>Update Product</h3>
+	
+	<!-- Use the views.html.helpers package to create the form -->
+	@form(action = routes.AdminProductCtrl.updateProductSubmit(id), 'class -> "form-horizontal", 'role->"form", 'enctype -> "multipart/form-data") {
+		
+		<!-- Build the form, adding an input for each field -->
+		<!-- Note the label parameter -->
+		@inputText(updateProductForm("name"), '_label -> "Name",'class -> "form-control")
+		@inputText(updateProductForm("description"), '_label -> "Description",'class -> "form-control")
+
+        <!-- Checkboxes for categories - current categories for this product are checked -->
+        <!-- Category.options provides a hashmap of value, name pairs -->
+        <!-- If product (id) is in catagory - mark it as checked -->
+        <!-- Checkbox name is catSelect[],  selected values will be stored in form object using catSelect defined in Product  -->
+        @for((value, name) <- Category.options) {
+            <input type="checkbox" name="catSelect[]" value="@value"
+            @if(Category.inCategory(value.toLong, id)) {
+                checked
+            }
+            />@name<br>        
+        }
+
+		@inputText(updateProductForm("stock"), '_label -> "Stock",'class -> "form-control")
+		@inputText(updateProductForm("price"), '_label -> "Price",'class -> "form-control")
+
+		<!-- Image upload input -->
+		<label>Image</label>
+    <input class="btn-sm btn-default" type="file" name="upload">
+	
+		<br><br>
+
+	<!-- Add a submit button -->
+  <div class="actions">
+      <input type="submit" value="Save" class="btn btn-primary">
+			<a href="@routes.AdminProductCtrl.listProducts(0)"
+				<button class="btn btn-warning" role="button">Cancel</button>
+			</a>
+  </div>
+	} <!-- End Form definition -->
+
+} <!-- End of page content -->
+
+

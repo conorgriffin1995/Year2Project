@@ -1,0 +1,62 @@
+@(paymentForm: Form[models.users.Customer], customer: models.users.Customer)
+
+@import helper._
+
+@main("Payment Required", customer) {
+
+        <div class="col-xs-4">
+		<h2>Payment</h2>
+        <!-- Display login erors if they exist -->
+        @if(paymentForm.hasGlobalErrors){
+		      <p class="alert alert-info">
+			      @paymentForm.globalError.message
+		      </p>
+	   }
+ 
+    
+    
+    
+    <!--The Address Form-->
+        <h4>Payment and Address Details:</h4>
+        @form(action = controllers.security.routes.PaymentCtrl.paymentFormSubmit()){
+        
+        <form role="form">
+        <div class="form-group">
+			<input type="text" name="street1" class="form-control" placeholder="Street 1" value="@paymentForm("street1").value">
+		</div>
+        
+        <div class="form-group">
+            <input type="text" name="street2" class="form-control" placeholder="Street 2" value="@paymentForm("street2").value">
+		</div> 
+        
+        <div class="form-group">
+           <input type="text" name="town" class="form-control" placeholder="Town" value="@paymentForm("town").value">
+		</div> 
+    
+        <div class="form-group">
+            <input type="text" name="postCode" class="form-control" placeholder="Post Code" value="@paymentForm("postCode").value">
+		</div> 
+        
+        <div class="form-group">
+            <input type="text" name="creditCard" class="form-control" placeholder="Credit Card" value="@paymentForm("creditCard").value">
+		</div> 
+        
+        <div class="form-group">
+            <input type="text" name="exMonth" class="form-control" placeholder="Expiry Month (MMM)" value="@paymentForm("exMonth").value">
+		</div> 
+        
+        <div class="form-group">
+            <input type="text" name="exYear" class="form-control" placeholder="Expiry Year (YYYY)" value="@paymentForm("exYear").value">
+		</div> 
+        </form>
+        }
+   
+    
+        <div class="col-md-0">
+                <p class="text-left">
+                    <a href="@routes.ShoppingCtrl.placeOrder()" class="btn btn-success btn-sm">
+                    <span class="glyphicon glyphicon-ok"></span> Place Order</a>
+                </p>
+            </div> 
+
+}

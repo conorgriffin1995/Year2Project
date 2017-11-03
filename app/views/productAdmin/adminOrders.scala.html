@@ -1,0 +1,44 @@
+@(user: models.users.User)
+
+@import play.api.Play.resource
+@import play.api.Play.current
+@import models.users._
+@import models.shopping._
+@import models.products._
+
+@productAdmin.main("All Orders", user) {
+    
+    
+    <h3>
+		All Previous Orders:
+	</h3>
+    
+    
+    <table class="table table-bordered table-hover table-condensed">
+			<thead>
+			<!-- The header row-->
+			<tr>
+                <th>ID</th>
+				<th>Order Date</th>
+				<th>Customer Email</th>
+                <!--<th>Product (Quantity)</th>
+                <th>Total Price</th>-->
+                <th>Delete</th>
+			</tr>
+			</thead>
+			
+		
+				
+                
+                
+			</tbody>
+		</table>
+
+}
+
+
+
+
+
+
+    

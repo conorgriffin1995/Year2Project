@@ -1,0 +1,38 @@
+#cf {
+  position:relative;
+  height:281px;
+  width:450px;
+  margin:0 auto;
+}
+
+#cf img {
+  position:absolute;
+  left:0;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+}
+
+#cf img.top:hover {
+  opacity:0;
+}
+
+a.class1 {color:black;}
+a.class1:link  {text-decoration: none; color: black;}
+a.class1:visited {text-decoration: none; color: black;}
+a.class1:hover {text-decoration: none; color: black;}
+a.class1:active {text-decoration: none; color: black;}
+
+img.class2{
+margin: 0 auto;
+}
+
+img.moveMe{
+    transition: all .2s ease-in-out;
+}
+
+.moveMe:hover{
+	transform: scale(1.1); 
+}
+

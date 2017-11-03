@@ -1,0 +1,37 @@
+@(title: String, user: models.users.User)
+
+@main("About", user) {
+
+    <div class="banner">
+            <a>
+                <img src="@routes.Assets.versioned("Images/VinylAndCD.png")" alt="Banner" class="img-responsive hidden-xs hidden-sm" />
+            </a>
+    </div>
+		
+		<div class="container" id="contact" name="contact">
+				<div class="row">
+				<br>
+					<h1 class="centered">Welcome to Music FX </h1>
+					<hr>
+				<br>
+				<div class="col-sm-6">
+				<p></p>					
+				<p>We are a online music store based in Dublin. Music FX offers the quickest and easiest way to find all the music and gear you need in one place, our aim is to supply customers with 
+					all types of music and accessories. We supply CD's, Vinyl and accessories such as headphones and speakers. We operate from a small warehouse in Dublin City, where all our products are stored. 
+					From here we deliver all our products to the customer. </p>
+				<p>Music FX offers free shipping of items or you can collect your items from the store. Our store is a purpose built megastore with over 20,000sq feet of musical excellence over three floors</p>
+				<p>We are extremely passionate about music. It’s a force that’s driven and inspired us from day one. So we’ve set out to make it better. To bring you as much music as possible. Regardless of your favourite 
+					genre or aspiration, Music FX is your 100% Irish owned musical paradise for all types of music and accessories. Our knowledgeable team of music lovers are always available to help you find the right piece of 
+					music or accessorie for your needs. </p>
+				</div>
+				
+				
+		
+		<div class="col-sm-6">
+        <img src="@routes.Assets.versioned("Images/AboutUs.png")" alt="Headphones Deal" class="class2 img-responsive img-rounded hidden-xs hidden-sm" />
+    </div>
+		
+				</div>
+		</div>
+		
+}

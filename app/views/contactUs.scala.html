@@ -1,0 +1,53 @@
+@(title: String, user: models.users.User)
+@main("Contact", user) {
+
+    <div class="container" id="contact" name="contact">
+				<div class="row">
+				<br>
+					<h1 class="centered">THANKS FOR VISITING US</h1>
+					<hr>
+				<br>
+				<br>
+				<div class="col-lg-3">
+					<h3>Contact Information</h3>
+					<p><span class="glyphicon glyphicon-home"></span> Institute of Technology Tallaght<br/>
+						<span class="glyphicon glyphicon-earphone"></span> +01 404 2000 <br/>
+						<span class="glyphicon glyphicon-globe"></span> <a href="https://www.facebook.com/itt.dublin/?fref=ts"> Facebook: ITT Dublin  </a> <br/>
+					</p>
+				</div><!-- col -->
+				
+				
+				<div class="col-lg-4">
+					<h3>Newsletter</h3>
+					<p>Register to our newsletter and be updated with the latests information regarding our services, offers and much more.</p>
+					<p>
+						<form class="form-horizontal" role="form">
+						  <div class="form-group">
+						    <label for="inputEmail1" class="col-lg-4 control-label"></label>
+						    <div class="col-lg-10">
+						      <input type="email" class="form-control" id="inputEmail1" placeholder="Email">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label for="text1" class="col-lg-4 control-label"></label>
+						    <div class="col-lg-10">
+						      <input type="text" class="form-control" id="text1" placeholder="Your Name">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <div class="col-lg-10">
+						      <button type="submit" class="btn btn-primary">Sign up!</button>
+						    </div>
+						  </div>
+					   </form><!-- form -->
+					</p>
+				</div><!-- col -->
+
+				<div class="col-lg-5">
+				<h3>Where to find us?</h3>
+				<iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0"width="450" height="400" src="https://maps.google.com/maps?hl=en&q=ITT Dublin&ie=UTF8&t=roadmap&z=14&iwloc=B&output=embed"><div><small><a href="http://embedgooglemaps.com">embedgooglemaps.com</a></small></div><div><small><a href="http://www.premiumlinkgenerator.com/">multihoster premium</a></small></div></iframe>
+				</div>
+				
+				</div>
+    </div>
+}

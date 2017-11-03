@@ -1,0 +1,229 @@
+@(title: String, user: models.users.User)
+@main("Manual", user) {
+
+<!--User Manual
+(For Customers) How to: 
+Register 
+Login 
+View Products
+Add product to basket
+Purchase your order
+View previous orders
+How to contact us
+
+(For Administrators) How to:
+View products
+Add a product
+Update a product
+Delete a product
+View Orders-->
+<br>
+<h1 class="centered">USER MANUAL</h1>
+<hr>
+<br>
+
+
+<div class="col-md-12">
+<ul style="list-style-type:square">
+<li><a href="#customer" class="class1"><h4>CUSTOMER</h4></a>
+    <ul style="list-style-type:square">
+        <li><a href="#register" class="class1"><h4>REGISTER</h4></a></li>
+        <li><a href="#login" class="class1"><h4>LOGIN</h4></a></li>
+        <li><a href="#viewProductsCustomer" class="class1"><h4>VIEW PRODUCTS</h4></a></li>
+        <li><a href="#addProductToBasket" class="class1"><h4>ADD A PRODUCT TO THE BASKET</h4></a></li>
+        <li><a href="#purchaseOrder" class="class1"><h4>PURCHASE AN ORDER</h4></a></li>
+        <li><a href="#viewPreviousOrders" class="class1"><h4>VIEW PREVIOUS ORDERS</h4></a></li>
+        <li><a href="#contactUs" class="class1"><h4>HOW TO CONTACT US</h4></a></li>
+        <li><a href="#aboutUs" class="class1"><h4>FIND OUT MORE ABOUT US</h4></a></li>
+    </ul>
+</li>
+</ul>
+
+<br>
+
+<ul style="list-style-type:square">
+<li><a href="#administrator" class="class1"><h4>ADMINISTRATOR</h4></a>
+    <ul style="list-style-type:square">
+        <li><a href="#viewProductsAdmin" class="class1"><h4>VIEW PRODUCTS</h4></a></li>
+        <li><a href="#addProduct" class="class1"><h4>ADD A PRODUCT</h4></a></li>
+        <li><a href="#updateProduct" class="class1"><h4>UPDATE A PRODUCT</h4></a></li>
+        <li><a href="#deleteProduct" class="class1"><h4>DELETE A PRODUCT</h4></a></li>
+        <li><a href="#viewOrdersAdmin" class="class1"><h4>VIEW ORDERS</h4></a></li>
+    </ul>
+</li>
+</ul>
+</div>
+
+<br>
+
+<div class="col-lg-12">
+    <div class="anchor" id="customer">
+        <h3>CUSTOMER MANUAL</h3>
+    </div>
+
+    <hr>
+
+    <div class="anchor" id="register">
+        <h3>REGISTER:</h3>
+            <p>At the top of the website in the navigation bar there is a button which allows users to register.</p>
+                <img class="img-responsive hidden-xs hidden-sm class2" src="@routes.Assets.versioned("Images/UserManualImages/RegisterButton.png")" alt="Register Button"> 
+            <p>Click this button and it will bring you to a register form where the user will fill out their details.</p><br>
+                <img class="img-responsive hidden-xs hidden-sm class2" src="@routes.Assets.versioned("Images/UserManualImages/RegisterForm.png")" alt="Register Form" >
+            <p>Once the user fills in their details and clicks ‘Create Account’, they will be redirected to the ‘Login’ page where they will then be able to login in.</p>
+    </div>
+
+    <hr>
+
+    <div class="anchor" id="login">
+        <h3>LOGIN:</h3>
+            <p>Logging in is very much similar to registering. There is a ‘Login’ button beside the ‘Register’ button on the navigation bar.</p>
+                <img class="img-responsive hidden-xs hidden-sm class2" src="@routes.Assets.versioned("Images/UserManualImages/LoginButton.png")" alt="Login Button">
+            <p>When the login button is clicked the user will be redirected to a login form, where all the user needs to enter is their email and password.</p><br>
+                <img class="img-responsive hidden-xs hidden-sm class2" src="@routes.Assets.versioned("Images/UserManualImages/LoginForm.png")" alt="Login Form">
+            <p>After signing in, the user will be directed to the home page which will have slight differences to the home page before they were logged in. On the navigation bar the user will now see a logout button instead of a login button and the user will also see a button to view their previous orders.</p><br>
+                <img class="img-responsive hidden-xs hidden-sm class2" src="@routes.Assets.versioned("Images/UserManualImages/LogoutAndPreviousOrders.png")" alt="Logout and Previous Orders buttons">
+            <p>The page will also give them a welcoming message with their name attached at the end instead of just the basic ‘Welcome’.</p><br>
+                <img class="img-responsive hidden-xs hidden-sm class2" src="@routes.Assets.versioned("Images/UserManualImages/WelcomeCustomer.png")" alt="Welcome Message">
+    </div>
+
+    <hr>
+
+    <div class="anchor" id="viewProductsCustomer">
+        <h3>VIEW PRODUCTS:</h3>
+            <p>In order for the user to view products they must click the drop down menu on the navigation bar.</p>
+                <img class="img-responsive hidden-xs hidden-sm class2" src="@routes.Assets.versioned("Images/UserManualImages/ProductsButton.png")" alt="Products Button">
+            <p>After the button is clicked it will give the user 4 options to choose from.</p><br>
+                <img class="img-responsive hidden-xs hidden-sm class2" src="@routes.Assets.versioned("Images/UserManualImages/ProductDropdown.png")" alt="Product Dropdown Menu">
+            <p>The user can view the products by their respective category or just view a big list of all the products on the one page. Either button will bring the user to the products page where they can purchase from.</p>
+    </div>
+
+    <hr>
+
+    <div class="anchor" id="addProductToBasket">
+        <h3>ADD PRODUCT TO BASKET:</h3>
+            <p>Once on the products page the user will be able to see a list of products we have to offer. If any of these products catches their eye, they can simply click the small trolley symbol at the end of the product which will then put that product into their basket.</p>
+                <img class="img-responsive hidden-xs hidden-sm class2" src="@routes.Assets.versioned("Images/UserManualImages/ShoppingCartButtonProducts.png")" alt="Shopping Cart Button">
+            <p>The product will stay in their basket even if they sign out, until the user decides to purchase this item it will stay in their basket. The user can click the shopping cart button on the navigation bar to view all items in their basket.</p><br>
+                <img class="img-responsive hidden-xs hidden-sm class2" src="@routes.Assets.versioned("Images/UserManualImages/ShoppingCartButton.png")" alt="Shopping Cart Button Navigation">
+            <p>The items in the basket will be viewable in a neat organized table like so:</p><br>
+                <img class="img-responsive hidden-xs hidden-sm class2" src="@routes.Assets.versioned("Images/UserManualImages/ItemsInBasket.png")" alt="Items In Basket">
+            <p>Users can add or remove to the quantity of an item in their basket by simply clicking the minus or plus symbols which mean ‘Decrement’ and ‘Increment’.</p><br>
+                <img class="img-responsive hidden-xs hidden-sm class2" src="@routes.Assets.versioned("Images/UserManualImages/ItemQuantity.png")" alt="Item Quantity Buttons">
+            <p>The user can simply in one click empty their basket by clicking the red button on the left which says ‘Empty Basket’. The user can also go back to shopping by clicking the blue button that says ‘Continue Shopping’ which will direct them back to the products page. The user can then decide to go through with the payment of their order by clicking the green button which says ‘Payment’.</p><br>
+                <img class="img-responsive hidden-xs hidden-sm class2" src="@routes.Assets.versioned("Images/UserManualImages/BasketButtons.png")" alt="Buttons On Basket Page">
+    </div>
+
+    <hr>
+
+    <div class="anchor" id="purchaseOrder">
+        <h3>PURCHASE YOUR ORDER:</h3>
+            <p>After the user clicks the green ‘Payment’ button from the basket page they will be directed to another page which will have the following payment form:</p>
+                <img class="img-responsive hidden-xs hidden-sm class2" src="@routes.Assets.versioned("Images/UserManualImages/PaymentForm.png")" alt="Payment Form">
+            <p>The user will fill out this form and click another green button saying ‘Place Order’. After clicking this button the order will be processed and a summary/confirmation of the customer’s order will be displayed.</p><br>
+                <img class="img-responsive hidden-xs hidden-sm class2" src="@routes.Assets.versioned("Images/UserManualImages/OrderConfirmation.png")" alt="Order Confirmation">
+            <p>This confirmation page looks similar to the basket page but notice there are no buttons to edit the order as it has already been put through and paid for. The user can then click the blue ‘Finish’ button which will direct them back to the home page.</p>
+    </div>
+
+    <hr>
+
+    <div class="anchor" id="viewPreviousOrders">
+        <h3>VIEW PREVIOUS ORDERS:</h3>
+            <p>Once the customer has made 1 or more orders. These orders go into the customer’s history and are then viewable simply by clicking the ‘Previous Orders’ button on the navigation bar.</p>
+                <img class="img-responsive hidden-xs hidden-sm class2" src="@routes.Assets.versioned("Images/UserManualImages/PreviousOrdersButton.png")" alt="Previous Orders Button">
+            <p>Once clicked, the user will be brought to a page which displays all the their previous orders in a neat organized table like so:</p><br>
+                <img class="img-responsive hidden-xs hidden-sm class2" src="@routes.Assets.versioned("Images/UserManualImages/PreviousOrdersTable.png")" alt="Previous Orders Table">
+            <p>The user can see the exact time and date that their order was placed, what was on the order and the total price of the order. The user can also delete the order from their history.</p>
+    </div>
+
+    <hr>
+
+    <div class="anchor" id="contactUs">
+        <h3>HOW TO CONTACT US:</h3>
+            <p>In a situation where a user would like to contact us, simply click the ‘Contact Us’ button from the navigation bar.</p><br>
+                <img class="img-responsive hidden-xs hidden-sm class2" src="@routes.Assets.versioned("Images/UserManualImages/ContactUsButton.png")" alt="ContactUsButton">
+            <p>This button will then bring up many ways in which the user can come in contact with us:</p><br>
+                <img class="img-responsive hidden-xs hidden-sm class2" src="@routes.Assets.versioned("Images/UserManualImages/ContactInformation.png")" alt="Contact Information">
+            <p>The user can see our address, phone number, facebook page and also navigate through an interactive google map to see our whereabouts from a greater location.
+            There is also a newsletter the user can sign up for to receive updates on our products and prices from time to time.</p>
+    </div>
+
+    <hr>
+    
+    <div class="anchor" id="aboutUs">
+        <h3>ABOUT US:</h3>
+        <p>Simply click the 'About Us' button in the navigation bar to find out more about us!
+            <img class="img-responsive hidden-xs hidden-sm class2" src="@routes.Assets.versioned("Images/UserManualImages/AboutUsButton.png")" alt="About Us Button">
+    </div>
+
+        <br>
+        <hr>
+        <br>
+        <br>
+
+    <div class="anchor" id="administrator">
+        <h3>ADMINISTRATOR MANUAL</h3>
+    </div>
+
+    <hr>
+
+    <div class="anchor" id="viewProductsAdmin">
+        <h3>VIEW PRODUCTS:</h3>
+            <p>Administrators will automatically be brought to the products page when they sign in as this is where most of their functionality takes place.</p>
+    </div>
+
+    <hr>
+
+    <div class="anchor" id="addProduct">
+        <h3>ADD A PRODUCT</h3>
+            <p>To add a product, scroll down to the bottom of the products page and there will be a blue button which says ‘Add Product’.</p>
+                <img class="img-responsive hidden-xs hidden-sm class2" src="@routes.Assets.versioned("Images/UserManualImages/AddProductButton.png")" alt="Add Product Button">
+            <p>Once clicked, the admin will be brought to a page which will contain a form to enter in the details of a product.</p><br>
+                <img class="img-responsive hidden-xs hidden-sm class2" src="@routes.Assets.versioned("Images/UserManualImages/AddProductForm.png")" alt="Add Product Form">
+            <p>Once filled out the admin can click the blue ‘Add Product’ button and it will save the product and redirect the admin to the products page.</p><br>
+                <img class="img-responsive hidden-xs hidden-sm class2" src="@routes.Assets.versioned("Images/UserManualImages/AddProductFilledForm.png")" alt="Add Product Filled Form">
+            <p>The product can now be seen among the others. The ID of the product is automatically assigned. Previously there was no ID:1 so the new product was assigned this ID.</p><br>
+                <img class="img-responsive hidden-xs hidden-sm class2" src="@routes.Assets.versioned("Images/UserManualImages/ProductInTable.png")" alt="Product In Products Table">
+    </div>
+
+    <hr>
+
+    <div class="anchor" id="updateProduct">
+        <h3>UPDATE A PRODUCT:</h3>
+            <p>To update a product the admin must click the pencil button on the right side of the product</p>
+                <img class="img-responsive hidden-xs hidden-sm class2" src="@routes.Assets.versioned("Images/UserManualImages/PencilButton.png")" alt="Pencil Button">
+            <p>This button will direct them to the similar form as the ‘Add Product’ form.</p><br>
+                <img class="img-responsive hidden-xs hidden-sm class2" src="@routes.Assets.versioned("Images/UserManualImages/UpdateProductForm.png")" alt="Update Product Form">
+            <p>You can see in this form how the products previous details are set and how they can be updated. When the admin clicks save they will be directed to the products page and the new changes can be seen on the product.</p>
+    </div>
+
+    <hr>
+
+    <div class="anchor" id="deleteProduct">
+        <h3>DELETE A PRODUCT:</h3>
+            <p>To delete a product the admin simply has to click the bin button on the right side of the product.</p>
+                <img class="img-responsive hidden-xs hidden-sm class2" src="@routes.Assets.versioned("Images/UserManualImages/BinButton.png")" alt="Bin Button">
+            <p>Once clicked the admin will be given a warning asking them are they sure they want to delete the product from the database:</p><br>
+                <img class="img-responsive hidden-xs hidden-sm class2" src="@routes.Assets.versioned("Images/UserManualImages/DeleteWarning.png")" alt="Delete Product Warning Modal/Popup">
+            <p>Click OK, and the product will disappear from the table of products.</p><br>
+                <img class="img-responsive hidden-xs hidden-sm class2" src="@routes.Assets.versioned("Images/UserManualImages/ProductGone.png")" alt="Product Gone From Products Table">
+    </div>
+
+    <hr>
+
+    <div class="anchor" id="viewOrdersAdmin">
+        <h3>VIEW ORDERS:</h3>
+            <p>For the admin to view all of their customer’s previous orders they must go to the navigation bar and click the ‘All Orders’ button which will direct them to a page which contains a table of all the orders gone out to which customers(By ID)</p>
+                <img class="img-responsive hidden-xs hidden-sm class2" src="@routes.Assets.versioned("Images/UserManualImages/AllOrdersButton.png")" alt="All Orders Button">
+    </div>
+
+</div><!--END OF COLUMN DIV FROM TOP OF PAGE-->
+
+
+
+
+
+
+
+
+
+}

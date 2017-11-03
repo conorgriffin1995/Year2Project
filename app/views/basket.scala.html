@@ -1,0 +1,107 @@
+@(customer: models.users.Customer)
+
+@import play.api.Play.resource
+@import play.api.Play.current
+@import models.shopping._
+@import models.products._
+
+<!-- Pass page title and user on to main -->
+@main("Shopping Basket", customer) {
+
+
+<div class="row">
+
+	<div class="col-md-12">
+		@if(flash.containsKey("success")) {
+			  <div class="alert alert-success">
+			      @flash.get("success")
+			  </div>
+		} 
+        @if(flash.containsKey("error")) {
+			  <div class="alert alert-danger">
+			      @flash.get("error")
+			  </div>
+		} 
+
+		<table class="table table-bordered table-hover table-condensed">
+			<thead>
+			<!-- The header row-->
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Item Price</th>
+				<th>Total</th>
+				<th>Quantity</th>
+                <th>dec.</th>
+                <th>inc.</th>
+			</tr>
+			</thead>
+			<tbody>
+                @if(customer.basket != null) {
+                    <!-- Start of For loop - For each p in products add a row -->
+                    @for(i <- customer.basket.basketItems) {
+                    <tr>
+                        <td>@i.product.name</td>
+                        <td>@i.product.description</td>
+                        <td>&euro; @("%.2f".format(i.price))</td>
+                        <td>&euro; @("%.2f".format(i.getItemTotal()))</td>
+                        <td>@i.stock</td>
+                        <td><a href="@routes.ShoppingCtrl.removeOne(i.id)"><span class="glyphicon glyphicon-minus-sign"></span></a></td>	
+                        <td><a href="@routes.ShoppingCtrl.addOne(i.id)"><span class="glyphicon glyphicon-plus-sign"></span></a></td>
+                        <td>
+						<a href="@routes.ShoppingCtrl.deleteItem(i.id,customer.basket.id)" class="btn-xs btn-danger" 
+						onclick="return confirmDel();">
+						<span class="glyphicon glyphicon-trash"></span></a>
+					</td>			
+                    </tr>
+                    }<!-- End of For loop -->
+                    
+              }
+              
+               
+              
+			</tbody>
+		</table>
+        
+        
+        @if(customer.basket.getBasketTotal() != 0.00) {
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-right"><strong>Basket Total: &euro; @("%.2f".format(customer.basket.getBasketTotal()))</strong></p>
+            </div>  
+        </div>
+        
+        <div class="row">
+            <div class="col-md-1">
+                <p class="text-right">
+                    <a href="@routes.ShoppingCtrl.emptyBasket()" class="btn btn-danger btn-sm" onclick="return confirmDel();">
+                    <span class="glyphicon glyphicon-trash"></span> Empty Basket</a>
+                </p>
+            </div>  
+            
+      
+            <div class="col-md-0">
+                <p class="text-right">
+                    <a href="@controllers.security.routes.PaymentCtrl.paymentForm()" class="btn btn-success btn-sm">
+                    <span class="glyphicon glyphicon-euro"></span> Payment</a>
+                </p>
+            </div> 
+            }
+            <div class = "col-md-0">
+                <p class="text-right">
+                    <a href="@routes.ProductCtrl.listProducts(0)" class="btn btn-primary btn-sm">
+                        <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping</a>
+                </p>
+           </div> 
+        </div>
+        </div>
+	</div>
+</div>
+
+<script>
+	// JavaScript function returns true if user clicks yes, otherwise, false
+	function confirmDel() {
+		return confirm('Are you sure?');
+	}
+</script>
+}

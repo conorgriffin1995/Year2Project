@@ -1,0 +1,49 @@
+@(addProductForm: Form[models.products.Product], user: models.users.User)
+<!-- addProductForm defined above is the parameter
+ passed to this view by the controller -->
+@import models.products._
+
+<!-- a 'helper' will be used to create the form dynamically, 
+though a static HTML form would also work -->
+@import helper._
+
+<!-- The page will be based on the main template -->
+@productAdmin.main("New Product", user) {
+
+	<h3>Add a new Product</h3>
+	
+	<!-- Use the views.html.helpers package to create the form -->
+	@form(action = routes.AdminProductCtrl.addProductSubmit(), 'class -> "form-horizontal", 'role->"form", 'enctype -> "multipart/form-data") {
+		
+		<!-- Build the form, adding an input for each field -->
+		<!-- Note the label parameter -->
+		@inputText(addProductForm("name"), '_label -> "Name",'class -> "form-control")
+		@inputText(addProductForm("description"), '_label -> "Description",'class -> "form-control")
+
+        <!-- Checkboxes for categories - current categories for this product are checked -->
+        <!-- Category.options provides a hashmap of value, name pairs -->
+        @for((value, name) <- Category.options) {
+            <input type="checkbox" name="catSelect[]" value="@value" />@name<br>        
+        }
+
+		@inputText(addProductForm("stock"), '_label -> "Stock",'class -> "form-control")
+		@inputText(addProductForm("price"), '_label -> "Price",'class -> "form-control")
+
+		<!-- Image upload input -->
+		<label>Image</label>
+            <input class="btn-sm btn-default" type="file" name="upload">
+	
+		<br><br>
+
+	<!-- Add a submit button -->
+  <div class="actions">
+      <input type="submit" value="Add Product" class="btn btn-primary">
+			<a href="@routes.AdminProductCtrl.listProducts(0)"
+				<button class="btn btn-warning">Cancel</button>
+			</a>
+  </div>
+	} <!-- End Form definition -->
+
+} <!-- End of page content -->
+
+

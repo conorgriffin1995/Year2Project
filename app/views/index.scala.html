@@ -1,0 +1,99 @@
+@(title: String, user: models.users.User)
+
+<link href="@routes.Assets.versioned("stylesheets/shop-homepage.css")" rel="stylesheet">    
+
+@main("index", user) {
+        
+    
+        
+    <div class="banner">
+        <a href="@routes.ProductCtrl.listProducts(0)">
+		<img src="@routes.Assets.versioned("Images/Banner2.png")" alt="Banner" class="img-responsive hidden-xs hidden-sm" />
+        </a>
+	</div>
+    
+    
+    <br><hr>
+    
+    <h3>
+		Welcome 
+            @if(user != null){
+                @user.name
+            }
+	</h3>
+    
+    <div class="row">
+        <div class="col-sm-5">
+            <div id="cf">
+                <a href="@routes.ProductCtrl.listProducts(3)"><img class = "bottom" src="@routes.Assets.versioned("Images/PillSpeakerImage/BeatsPillTealSide.png")" alt="Dre Beats Speaker" class="class2 moveMe img-responsive" /></a>
+                <a href="@routes.ProductCtrl.listProducts(3)"><img class="top" src="@routes.Assets.versioned("images/PillSpeakerImage/BeatsPillTealFront.png")" /></a>
+            </div>
+        </div>
+        
+        
+        <div class="col-sm-2">
+            
+        </div>
+                        
+        
+        <div class="col-sm-5">
+            <div id="cf">
+                <a href="@routes.ProductCtrl.listProducts(3)"><img class = "bottom" src="@routes.Assets.versioned("Images/PillSpeakerImage/BeatsPillBlueSide.png")" alt="Dre Beats Speaker" class="class2 moveMe img-responsive" /></a>
+                <a href="@routes.ProductCtrl.listProducts(3)"><img class="top" src="@routes.Assets.versioned("images/PillSpeakerImage/BeatsPillBlueFront.png")" /></a>
+            </div>
+        </div>
+        
+        <div class="col-sm-12 text-center">
+            <a class="class1" href="@routes.ProductCtrl.listProducts(3)"><h3>Beats By Dre Pill Speaker.</h3></a>
+            <div class="col-sm-4 center"></div><div class="col-sm-4 center"><hr></div><div class="col-sm-4 center"></div>
+        </div>
+    </div>
+    <!-- /.row -->
+    
+    <br>
+    
+    <div class="row">
+        <div class="col-sm-4">
+             <a href="@routes.ProductCtrl.listProducts(1)"><img src="@routes.Assets.versioned("Images/AlbumImages/CD1.jpg")" alt="Chris Brown Royalty Album" class="class2 moveMe img-responsive" /></a>
+            <a href="@routes.ProductCtrl.listProducts(1)" class="text-center class1"><h4>Chris Brown | Royalty</h4></a>
+        </div>
+        
+        <div class="col-sm-4">
+             <a href="@routes.ProductCtrl.listProducts(1)"><img src="@routes.Assets.versioned("Images/AlbumImages/CD3.jpg")" alt="Bryson Tiller Trapsoul Album" class="class2 moveMe img-responsive" /></a>
+            <a href="@routes.ProductCtrl.listProducts(1)" class="text-center class1"><h4>Bryson Tiller | T R A P S O U L</h4></a>
+        </div>
+        
+        <div class="col-sm-4">
+             <a href="@routes.ProductCtrl.listProducts(1)"><img src="@routes.Assets.versioned("Images/AlbumImages/CD4.jpg")" alt="Kendrick Lamar To Pimp a Butterfly Album " class="class2 moveMe img-responsive" /></a>
+            <a href="@routes.ProductCtrl.listProducts(1)" class="text-center class1"><h4>Kendrick Lamar | To Pimp A Butterfly</h4></a>
+        </div>
+    </div>
+    <!-- /.row -->
+            
+            <br>
+            <hr>
+            <br>
+            
+    <div class="row">
+        <div class="col-sm-4">
+            <a href="@routes.ProductCtrl.listProducts(1)"><img src="@routes.Assets.versioned("Images/AlbumImages/CD2.jpg")" alt="Gorillaz Platic Beach Album" class="class2 moveMe img-responsive" /></a>
+            <a href="@routes.ProductCtrl.listProducts(1)" class="text-center class1"><h4>Gorillaz | Platic Beach</h4></a>
+        </div>
+        
+        <div class="col-sm-4">
+             <a href="@routes.ProductCtrl.listProducts(1)"><img src="@routes.Assets.versioned("Images/AlbumImages/CD5.jpg")" alt="The 1975 Album" class="class2 moveMe img-responsive" /></a>
+            <a href="@routes.ProductCtrl.listProducts(1)" class="text-center class1"><h4>The 1975 | The 1975</h4></a>
+        </div>
+        
+        <div class="col-sm-4">
+             <a href="@routes.ProductCtrl.listProducts(1)"><img src="@routes.Assets.versioned("Images/AlbumImages/CD6.jpg")" alt="Kings Of Leon Only By The Knight Album" class="class2 moveMe img-responsive" /></a>
+            <a href="@routes.ProductCtrl.listProducts(1)" class="text-center class1"><h4>Kings Of Leon | Only By The Knight</h4></a>
+        </div>
+    </div>
+    <!-- /.row -->
+    
+    
+    <br>
+    
+    
+}

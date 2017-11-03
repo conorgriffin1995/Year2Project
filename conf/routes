@@ -1,0 +1,76 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# https://www.playframework.com/documentation/2.4.1/JavaRouting
+# Home page
+GET     /                           controllers.Application.index()
+GET     /index                      controllers.Application.index()
+GET     /home                       controllers.Application.index()
+GET     /about                      controllers.Application.about()
+GET     /aboutUs                    controllers.Application.about()
+GET     /contact                    controllers.Application.contactUs()
+GET     /contactUs                  controllers.Application.contactUs()
+GET     /manual                     controllers.Application.manual()
+
+
+# Show a list of products - note optional parameter
+GET     /listProducts               controllers.ProductCtrl.listProducts(cat: Long ?= 0, filter ?="")
+
+
+# Show a list of orders - note optional parameter
+GET     /listOrders                 controllers.OrderCtrl.listOrders(id: Long = 0)
+GET     /listOrders/:id             controllers.OrderCtrl.listOrders(id: Long)
+
+# Show all the previous orders
+GET     /orders                     controllers.OrderCtrl.orders()
+
+
+# Shopping
+GET     /showBasket                 controllers.ShoppingCtrl.showBasket()
+GET     /addToBasket/:id            controllers.ShoppingCtrl.addToBasket(id: Long)
+GET     /addOne/:itemId             controllers.ShoppingCtrl.addOne(itemId: Long)
+GET     /removeOne/:itemId          controllers.ShoppingCtrl.removeOne(itemId: Long)
+GET     /delItem/:id/:basketID      controllers.ShoppingCtrl.deleteItem(id:Long, basketID: Long)
+GET     /emptyBasket                controllers.ShoppingCtrl.emptyBasket()
+GET     /placeOrder                 controllers.ShoppingCtrl.placeOrder()
+GET     /viewOrder/:id              controllers.ShoppingCtrl.viewOrder(id: Long)
+
+
+# Login form
+GET		/login						controllers.security.LoginCtrl.login()
+POST	/login						controllers.security.LoginCtrl.authenticate()
+GET     /logout                     controllers.security.LoginCtrl.logout()
+
+#Register User
+GET     /registerForm               controllers.security.RegisterCtrl.registerForm()
+POST    /registerFormSubmit         controllers.security.RegisterCtrl.registerFormSubmit()
+
+#Payment User
+GET     /paymentForm                controllers.security.PaymentCtrl.paymentForm()
+POST    /paymentFormSubmit          controllers.security.PaymentCtrl.paymentFormSubmit()
+
+# Product Administration
+GET     /Admin						        controllers.AdminProductCtrl.index()
+
+GET     /Admin/listProducts                 controllers.AdminProductCtrl.listProducts(cat: Long = 0)
+GET     /Admin/listProducts/:cat            controllers.AdminProductCtrl.listProducts(cat: Long)
+
+
+GET		/Admin/addProduct					controllers.AdminProductCtrl.addProduct()
+POST	/Admin/addProductSubmit				controllers.AdminProductCtrl.addProductSubmit()
+
+GET		/Admin/updateProduct/:id			controllers.AdminProductCtrl.updateProduct(id:Long)
+POST	/Admin/updateProductSubmit/:id		controllers.AdminProductCtrl.updateProductSubmit(id:Long)
+
+GET     /Admin/delProduct/:id               controllers.AdminProductCtrl.deleteProduct(id:Long)
+
+# Render AdminOrders Scala page
+GET     /Admin/adminOrders                  controllers.AdminOrderCtrl.adminOrders()
+
+# Delete an order from previous orders page
+GET     /deleteOrder/:id                    controllers.OrderCtrl.deleteOrder(id:Long)
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

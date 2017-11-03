@@ -1,0 +1,89 @@
+@(form: Form[models.users.Login], user: models.users.User)
+
+@main("Login Required", user) {
+
+<div class="banner">
+            <a>
+                <img src="@routes.Assets.versioned("Images/Records.png")" alt="Banner" class="img-responsive hidden-xs hidden-sm" />
+            </a>
+    </div>
+<br>
+<br>		
+<div class="container" id="contact" name="contact">
+		<div class="row">
+
+            <br>
+
+<div class="col-xs-4">
+  <h3>Sign in</h3>
+	<!-- Display login errors if they exist -->
+	@if(form.hasGlobalErrors) {
+		  <p class="alert alert-warning">
+		      @form.globalError.message
+		  </p>
+	}
+    @if(flash.containsKey("error")) {
+		  <div class="alert alert-danger">
+		      @flash.get("error")
+		  </div>
+	}
+	<!-- The login form -->
+	@helper.form(action = controllers.security.routes.LoginCtrl.authenticate) {
+
+    <div class="form-group">
+        <input type="text" name="email" class="form-control input-xs" placeholder="Email" value="@form("email").value">
+    </div>
+    <div class="form-group">
+        <input type="password" name="password" class="form-control input-xs" placeholder="Password">
+    </div>
+
+		<!-- Add a submit button -->
+		<div class="form-group">
+		    <input type="submit" value="Sign In" class="btn btn-primary">
+		
+		<!-- Demo Login details button -->
+            <input type="button" href="#login" data-toggle="modal" value="Demo Login Details" class="btn btn-danger"></a>
+		</div>
+        
+        
+		}
+</div>
+	
+	<div class="col-sm-2">
+        <h1> </h1>
+    </div>
+    
+    <div class="col-sm-6">
+        <img src="@routes.Assets.versioned("Images/HeadphonesDeal.png")" alt="Headphones Deal" class="img-responsive img-rounded hidden-xs hidden-sm" />
+    </div>
+
+
+
+    <div class="modal fade" id="login" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Login details for demo:</h3>
+                        <div class="modal-body">
+                            <h4>Admin Login:</h4>
+                            Email = 'admin@@products.com'
+                            <p>Password = 'password'</p>
+                            
+                            <h4>Customer Login:</h4>
+                            Email = 'customer@@products.com'
+                            <p>Password = 'password'</p>
+                            
+                            <h4>or register as a new customer.</h4>
+                        </div>
+                            
+                        <div class="modal-footer">
+                            <a class="btn btn-primary" data-dismiss="modal">Dismiss</a>
+                        </div>
+                </div>
+            </div>
+        </div>          
+    </div>
+
+		</div>
+</div>
+}
